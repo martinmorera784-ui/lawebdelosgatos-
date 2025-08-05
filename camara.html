@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>La Cámara del Tiempo</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <style>
+    body {
+      color: white;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .codigo-form {
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .codigo-form input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .codigo-form input[type="submit"] {
+      padding: 8px 20px;
+      font-size: 16px;
+      background-color: #444;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-left: 10px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    #output {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>La Cámara del Tiempo</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="razas.html">Razas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="camara.html">La Cámara del Tiempo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="codigo-form">
+      <h2>Introduce un código secreto</h2>
+      <form id="codigoForm">
+        <input type="text" id="codigo" placeholder="Escribe el código..." required>
+        <input type="submit" value="Enviar">
+      </form>
+      <div id="output"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 La Web de los Gatos</p>
+  </footer>
+
+  <script>
+    // Ajuste de fondo mágico
+    if (window.location.pathname.includes("camara.html")) {
+      document.body.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('imgs/chamber.png')";
+      document.body.style.backgroundSize = "contain";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundPosition = "top center";
+      document.body.style.backgroundAttachment = "fixed";
+    }
+
+    // Código secreto
+    document.getElementById("codigoForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const codigo = document.getElementById("codigo").value.trim().toLowerCase();
+      const output = document.getElementById("output");
+
+      if (codigo === "gatoarcano") {
+        output.innerHTML = `
+          <div style="text-align:center;">
+            <img src='img/gato3.png' alt='Gato Místico' style='width:180px; border-radius:12px; box-shadow: 0 0 10px #fff;'>
+            <p>Has despertado al Gato Arcano 🐱‍👤</p>
+          </div>`;
+      } else if (codigo === "bigotes") {
+        output.innerHTML = "<p>🐾 El espíritu de Bigotes te observa desde el más allá...</p>";
+      } else if (codigo === "catzilla") {
+        output.innerHTML = "<p>¡CatZilla ha sido liberado! 🐱🔥</p>";
+      } else {
+        output.innerHTML = "<p>Código incorrecto. Prueba con otro 🕵️‍♂️</p>";
+      }
+    });
+  </script>
+</body>
+</html>

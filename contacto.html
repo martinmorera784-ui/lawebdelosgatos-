@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>La Cámara del Tiempo</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <style>
+    #easter-content {
+      margin-top: 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .fireworks {
+      font-size: 3em;
+      color: yellow;
+      animation: blink 0.3s infinite alternate;
+    }
+    @keyframes blink {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>La Cámara del Tiempo</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="galeria.html">Galería</a>
+    <a href="razas.html">Razas</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="camara.html">La Cámara del Tiempo</a>
+  </nav>
+
+  <main>
+    <h2>Introduce un código secreto</h2>
+    <input type="text" id="codigo" placeholder="Escribe el código...">
+    <button onclick="verificarCodigo()">Enviar</button>
+    <div id="easter-content"></div>
+  </main>
+
+  <footer>
+    &copy; 2025 La Web de los Gatos
+  </footer>
+
+  <script>
+    // Fondo especial para camara
+    const fondo = document.createElement("img");
+    fondo.src = "imgs/chamber.png";
+    fondo.style.position = "fixed";
+    fondo.style.top = 0;
+    fondo.style.left = 0;
+    fondo.style.width = "100%";
+    fondo.style.height = "100%";
+    fondo.style.objectFit = "cover";
+    fondo.style.zIndex = "-1";
+    fondo.style.opacity = 0.25;
+    document.body.appendChild(fondo);
+
+    function verificarCodigo() {
+      const input = document.getElementById("codigo").value.toLowerCase().trim();
+      const output = document.getElementById("easter-content");
+      output.innerHTML = "";
+
+      switch (input) {
+        case "gatoarcano":
+          output.innerHTML = `
+            <div style="text-align:center;">
+              <img src='img/gato3.png' alt='Gato Místico' style='width:180px; border-radius:12px; box-shadow: 0 0 10px #fff;'>
+              <p>Has despertado al Gato Arcano 🐱‍🔪</p>
+            </div>
+          `;
+          break;
+        case "invisible":
+          document.body.innerHTML = "";
+          break;
+        case "fiesta":
+          output.innerHTML = "<p class='fireworks'>🎆🎉 ¡Modo Fiesta Activado! 🎉🎆</p>";
+          break;
+        case "meow":
+          output.innerHTML = "<audio autoplay src='https://www.fesliyanstudios.com/play-mp3/6963'></audio><p>¡Meow! 🐾</p>";
+          break;
+        default:
+          output.innerHTML = "<p>Código incorrecto o desconocido ❌</p>";
+          break;
+      }
+    }
+  </script>
+</body>
+</html>

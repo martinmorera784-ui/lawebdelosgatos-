@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>La Web de los Gatos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Bienvenido a La Web de los Gatos</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="galeria.html">Galería</a>
+    <a href="razas.html">Razas</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="camara.html">La Cámara del Tiempo</a>
+  </nav>
+
+  <main>
+    <h2>Explora el mundo de los gatos</h2>
+    <p>Esta web está dedicada a los gatos más geniales del universo.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 La Web de los Gatos
+  </footer>
+
+  <script>
+    if (window.location.pathname.includes("camara.html")) {
+      const fondo = document.createElement("img");
+      fondo.src = "imgs/chamber.png";
+      fondo.style.position = "fixed";
+      fondo.style.top = 0;
+      fondo.style.left = 0;
+      fondo.style.width = "100%";
+      fondo.style.height = "100%";
+      fondo.style.objectFit = "cover";
+      fondo.style.zIndex = "-1";
+      fondo.style.opacity = 0.3;
+      document.body.appendChild(fondo);
+    }
+  </script>
+</body>
+</html>
